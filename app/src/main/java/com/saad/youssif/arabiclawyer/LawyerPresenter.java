@@ -26,11 +26,10 @@ public class LawyerPresenter {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
 
-                Toast.makeText(context,"TEST",Toast.LENGTH_LONG).show();
                 Log.e("LoginResponse", response.raw().request().toString());
 
                 if (response.isSuccessful()) {
-                    loginView.showLoginResult(response.body());
+                    loginView.showLoginResult(response.body().toString());
 
                 }
                 else

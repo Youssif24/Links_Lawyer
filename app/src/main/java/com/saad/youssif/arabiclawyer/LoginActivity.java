@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     Button enterBtn;
     EditText nameEt,passwordEt;
     ProgressDialog progressDialog;
+    //this is test comment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     @Override
     public void showLoginResult(String result) {
         Toast.makeText(this,result,Toast.LENGTH_LONG).show();
-        /*if(result.equals("success"))
+        if(result.equals("success"))
         {
             Toast.makeText(this,"تم تسجيل الدخول بنجاح",Toast.LENGTH_LONG).show();
             progressDialog.dismiss();
@@ -46,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         {
             Toast.makeText(this,"من فضلك حاول مرة اخري......",Toast.LENGTH_LONG).show();
             progressDialog.dismiss();
-        }*/
+        }
 
     }
 }
