@@ -4,8 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-    // hello, this is first comment
-    // test pull request
+   //hello this is new branch
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
