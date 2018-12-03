@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#FF7F50</color>
+    <color name="colorPrimaryDark">#5F9EA0</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffff</color>
     <color name="black">#000</color>
     <color name="gray">#F0F0F0</color>
+    <color name="littleWhite">#95999c</color>
+    <color name="secondPrimary">#E8307A</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#28ca1a</color>
+    <color name="red">#FF0000</color>
+    <color name="dark_yellow">#ccff00</color>
+    <color name="mov">#6e007f</color>
+    <color name="sky">#9FEFFF</color>
+    <color name="blue_gry">#3F6267</color>
+    <color name="teal">#009688</color>
+    <color name="deap_purple">#6200EA</color>
+    <color name="Gold">#FFD700</color>
+    <color name="Coral">#FF7F50</color>
+    <color name="Chocolate">#D2691E</color>
+    <color name="Peru">#CD853F</color>
+    <color name="IndianRed">#CD5C5C</color>
+    <color name="MediumVioletRed">#C71585</color>
+    <color name="Silver">#C0C0C0</color>
+    <color name="DarkKhaki">#BDB76B</color>
+    <color name="MediumAquamarine">#66CDAA</color>
+    <color name="CornflowerBlue">#6495ED</color>
+    <color name="CadetBlue">#5F9EA0</color>
+    <color name="DarkOliveGreen">#556B2F</color>
+    <color name="Indigo">#4B0082</color>
+    <color name="MediumTurquoise">#48D1CC</color>
+    <color name="DarkSlateBlue">#483D8B</color>
+    <color name="SteelBlue">#4682B4</color>
+    <color name="RoyalBlue">#4169E1</color>
+    <color name="Turquoise">#40E0D0</color>
+    <color name="MediumSeaGreen">#3CB371</color>
+    <color name="LimeGreen">#32CD32</color>
+    <color name="DarkSlateGray">#2F4F4F</color>
+    <color name="SeaGreen">#2E8B57</color>
+    <color name="ForestGreen">#228B22</color>
+    <color name="LightSeaGreen">#20B2AA</color>
+    <color name="DodgerBlue">#1E90FF</color>
+
 </resources>
