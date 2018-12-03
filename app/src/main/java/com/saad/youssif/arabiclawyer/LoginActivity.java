@@ -1,6 +1,7 @@
 package com.saad.youssif.arabiclawyer;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
     LawyerPresenter lawyerPresenter;
@@ -21,6 +24,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     ProgressDialog progressDialog;
     ConnectivityManager connectivityManager;
     SharedPrefManager sharedPrefManager;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
