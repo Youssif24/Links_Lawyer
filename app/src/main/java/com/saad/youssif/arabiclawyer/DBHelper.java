@@ -18,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table Client ( id  DOUBLE PRIMARY KEY AUTOINCREMENT,name TEXT,type TEXT, phone INTEGER)");
+        db.execSQL("Create table Client ( id  INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,type TEXT, phone INTEGER)");
 
     }
 
@@ -52,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
         while (cursor.isAfterLast()==false)//last field
         {
             ClientDB clientDB=new ClientDB();
-            clientDB.setId(cursor.getDouble(0));
+            clientDB.setId(cursor.getInt(0));
             clientDB.setName(cursor.getString(1));
             clientDB.setType(cursor.getString(2));
             clientDB.setPhone(cursor.getInt(3));
@@ -68,7 +68,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
     //to get update on databae its look like addData function .
-    public boolean updateData(double id,String name,String type,int phone){
+    public boolean updateData(int id,String name,String type,int phone){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put("name",name);
@@ -78,11 +78,32 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return true;
     }
-    public Integer Delete(double id){
+    public Integer Delete(int id){
         SQLiteDatabase db=this.getWritableDatabase();
         return db.delete("Client","id= ?",new String[]{String.valueOf(id)});
 
 
     }
+    /*
+    * RecyclerView recyclerView;
+    DBHelper dbHelper;
+    ArrayList<ClientDB> clientDBArrayList;
+    ClientAdapter clientAdapter;
+    RecyclerView.LayoutManager layoutManager;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_client);
+        dbHelper=new DBHelper(this);
+        recyclerView=findViewById(R.id.recyclerView);
+        layoutManager=new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        clientDBArrayList=dbHelper.getAllrecord();
+        clientAdapter=new ClientAdapter(clientDBArrayList,this);
+        recyclerView.setAdapter(clientAdapter);
+
+    }
+
+    * */
 }
 

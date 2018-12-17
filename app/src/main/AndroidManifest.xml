@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -19,9 +21,9 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ui.Splash"
-            android:theme="@style/Theme.Design.Light.NoActionBar"
-            >
+        <activity
+            android:name=".ui.Splash"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,11 +32,10 @@
         </activity>
         <activity android:name=".ui.Home" />
         <activity android:name=".ui.Glsat" />
-        <activity android:name=".ui.Client" />
         <activity android:name=".ui.Twkeel" />
         <activity android:name=".ui.kadya" />
         <activity android:name=".ui.Exit" />
-        <activity android:name=".ui.mozkrat"></activity>
+        <activity android:name=".ui.mozkrat" />
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@ package com.saad.youssif.arabiclawyer.Model;
 public class ClientDB {
     String name,type;
     int phone;
-    double id;
+    int id;
 
     public String getName() {
         return name;
@@ -29,11 +29,11 @@ public class ClientDB {
         this.phone = phone;
     }
 
-    public double getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

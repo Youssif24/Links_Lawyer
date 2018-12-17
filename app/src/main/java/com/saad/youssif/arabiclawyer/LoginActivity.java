@@ -54,10 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                         progressDialog.setMessage("جاري تسجيل الدخول........");
                         progressDialog.show();
                         lawyerPresenter.lawyerLogin(nameEt.getText().toString(),passwordEt.getText().toString());
-                        Intent intent=new Intent(LoginActivity.this,Home.class);
-                        startActivity(intent);
-                        //destory activity
-                        LoginActivity.this.finish();
+
 
                     }
 
@@ -78,7 +75,9 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             Toast.makeText(this,"تم تسجيل الدخول بنجاح",Toast.LENGTH_LONG).show();
             save_user_data(nameEt.getText().toString(),passwordEt.getText().toString());
             progressDialog.dismiss();
-            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            Intent intent=new Intent(LoginActivity.this,Home.class);
+            startActivity(intent);
+            //destory activity
             LoginActivity.this.finish();
         }
         else
@@ -125,7 +124,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         String pass=sharedPrefManager.getPassword();
         if(!(TextUtils.isEmpty(name))&&!(TextUtils.isEmpty(pass)))
         {
-            startActivity(new Intent(LoginActivity.this,MainActivity.class));
+            startActivity(new Intent(LoginActivity.this,Home.class));
             LoginActivity.this.finish();
         }
     }
