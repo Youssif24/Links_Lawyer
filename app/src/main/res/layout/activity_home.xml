@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back7"
+    tools:context=".ui.Home">
+
+    <Button
+        android:id="@+id/glsat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="107dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="الجلسات "
+        android:textColor="#ffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/twkeel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mokel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mokel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginRight="57dp"
+        android:layout_marginBottom="107dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="الموكلين"
+        android:textColor="#ffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/kadya"
+        app:layout_constraintEnd_toStartOf="@+id/glsat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/twkeel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="103dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="التوكيلات"
+        android:textColor="#ffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/outBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/kadya"
+        app:layout_constraintTop_toBottomOf="@+id/glsat" />
+
+    <Button
+        android:id="@+id/kadya"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginBottom="111dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="القضايا"
+        android:textColor="#ffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/mozkrat"
+        app:layout_constraintEnd_toStartOf="@+id/twkeel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mokel" />
+
+    <Button
+        android:id="@+id/mozkrat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginRight="67dp"
+        android:layout_marginBottom="114dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="مذكرات"
+        android:textColor="#ffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/outBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kadya" />
+
+    <Button
+        android:id="@+id/outBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="122dp"
+        android:background="@drawable/login_btn_selector"
+        android:text="خروج"
+        android:textColor="#ffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mozkrat"
+        app:layout_constraintTop_toBottomOf="@+id/twkeel" />
+
+</android.support.constraint.ConstraintLayout>

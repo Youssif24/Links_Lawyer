@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.saad.youssif.arabiclawyer.ui.Home;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
@@ -52,6 +54,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                         progressDialog.setMessage("جاري تسجيل الدخول........");
                         progressDialog.show();
                         lawyerPresenter.lawyerLogin(nameEt.getText().toString(),passwordEt.getText().toString());
+                        Intent intent=new Intent(LoginActivity.this,Home.class);
+                        startActivity(intent);
+                        //destory activity 
+                        LoginActivity.this.finish();
+
                     }
 
                 }
