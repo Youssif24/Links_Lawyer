@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".ui.Home" />
         <activity android:name=".ui.Glsat" />
-        <activity android:name=".ui.Mokel" />
+        <activity android:name=".ui.Client" />
         <activity android:name=".ui.Twkeel" />
         <activity android:name=".ui.kadya" />
         <activity android:name=".ui.Exit" />

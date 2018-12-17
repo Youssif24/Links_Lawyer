@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.saad.youssif.arabiclawyer.R;
 
-public class Mokel extends AppCompatActivity {
+public class Client extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mokel);
+        setContentView(R.layout.activity_client);
     }
 }
