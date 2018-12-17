@@ -32,7 +32,7 @@ public class Home extends AppCompatActivity {
         MokelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i2=new Intent(Home.this,Client.class);
+                Intent i2=new Intent(Home.this,ClientActivity.class);
                 startActivity(i2);
 
             }

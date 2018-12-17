@@ -1,9 +1,8 @@
 package com.saad.youssif.arabiclawyer.Model;
 
 public class ClientDB {
-    String name,type;
-    int phone;
-    int id;
+    String name,type,id,phone;
+
 
     public String getName() {
         return name;
@@ -21,19 +20,19 @@ public class ClientDB {
         this.type = type;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

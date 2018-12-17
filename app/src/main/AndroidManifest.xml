@@ -36,6 +36,10 @@
         <activity android:name=".ui.kadya" />
         <activity android:name=".ui.Exit" />
         <activity android:name=".ui.mozkrat" />
+        <activity
+            android:name=".ui.ClientActivity"
+            android:label="@string/title_activity_client" />
+        <activity android:name=".ui.NewClient"></activity>
     </application>
 
 </manifest>

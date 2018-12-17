@@ -34,8 +34,8 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
     @Override
     public void onBindViewHolder(@NonNull ClientViewHolder cartViewHolder, int i) {
         ClientDB clientDB=clientList.get(i);
-        cartViewHolder.client_item_name.setText("الاسم"+clientDB.getName());
-        cartViewHolder.client_item_type.setText("نوع القضية"+clientDB.getType());
+        cartViewHolder.client_item_name.setText(clientDB.getName());
+        cartViewHolder.client_item_type.setText(clientDB.getType());
         cartViewHolder.client_item_phone.setText(clientDB.getPhone());
 
     }

@@ -18,7 +18,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table Client ( id  INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,type TEXT, phone INTEGER)");
+        db.execSQL("Create table Client ( id  INTEGER PRIMARY KEY,name TEXT,type TEXT, phone INTEGER)");
 
     }
 
@@ -29,9 +29,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
     //function to insert data (to get writale)
-    public boolean insertData(String name,String type,int phone){
+    public boolean insertClientData(String id,String name,String type,String phone){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
+        contentValues.put("id",id);
         contentValues.put("name",name);
         contentValues.put("type",type);
         contentValues.put("phone",phone);
@@ -52,10 +53,10 @@ public class DBHelper extends SQLiteOpenHelper {
         while (cursor.isAfterLast()==false)//last field
         {
             ClientDB clientDB=new ClientDB();
-            clientDB.setId(cursor.getInt(0));
+            clientDB.setId(cursor.getString(0));
             clientDB.setName(cursor.getString(1));
             clientDB.setType(cursor.getString(2));
-            clientDB.setPhone(cursor.getInt(3));
+            clientDB.setPhone(cursor.getString(3));
            /* String t1=cursor.getString(0);
             String t2=cursor.getString(1);
             String t3=cursor.getString(2);
@@ -68,7 +69,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
     //to get update on databae its look like addData function .
-    public boolean updateData(int id,String name,String type,int phone){
+    public boolean updateData(String id,String name,String type,String phone){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put("name",name);
@@ -78,7 +79,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return true;
     }
-    public Integer Delete(int id){
+    public Integer Delete(String id){
         SQLiteDatabase db=this.getWritableDatabase();
         return db.delete("Client","id= ?",new String[]{String.valueOf(id)});
 
