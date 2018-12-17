@@ -9,7 +9,7 @@ import com.saad.youssif.arabiclawyer.LoginActivity;
 import com.saad.youssif.arabiclawyer.R;
 
 public class Splash extends AppCompatActivity {
-    private static int Splash_Time_Out = 2000;
+    private static int Splash_Time_Out = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

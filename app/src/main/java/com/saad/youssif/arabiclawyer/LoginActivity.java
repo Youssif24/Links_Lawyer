@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                         lawyerPresenter.lawyerLogin(nameEt.getText().toString(),passwordEt.getText().toString());
                         Intent intent=new Intent(LoginActivity.this,Home.class);
                         startActivity(intent);
-                        //destory activity 
+                        //destory activity
                         LoginActivity.this.finish();
 
                     }
