@@ -1,4 +1,4 @@
-package com.saad.youssif.arabiclawyer;
+package com.saad.youssif.arabiclawyer.View;
 
 public interface LoginView {
 

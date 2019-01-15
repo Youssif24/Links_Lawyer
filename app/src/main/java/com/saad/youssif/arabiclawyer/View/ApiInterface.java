@@ -1,4 +1,4 @@
-package com.saad.youssif.arabiclawyer;
+package com.saad.youssif.arabiclawyer.View;
 
 import retrofit2.Call;
 import retrofit2.http.Field;

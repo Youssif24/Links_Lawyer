@@ -1,8 +1,12 @@
-package com.saad.youssif.arabiclawyer;
+package com.saad.youssif.arabiclawyer.Other;
 
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.saad.youssif.arabiclawyer.View.ApiClient;
+import com.saad.youssif.arabiclawyer.View.ApiInterface;
+import com.saad.youssif.arabiclawyer.View.LoginView;
 
 import retrofit2.Call;
 import retrofit2.Callback;

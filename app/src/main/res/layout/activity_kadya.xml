@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.kadya">
+    tools:context="com.saad.youssif.arabiclawyer.Activities.kadya"
+    android:layoutDirection="rtl"
+    >
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:textDirection="rtl"
+        android:textAlignment="viewStart"
+        android:layout_gravity="start"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/issueToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/CadetBlue"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="قائمة القضايا"
+            android:layout_gravity="right"
+            android:gravity="start"
+            android:textDirection="rtl"
+            android:textAlignment="viewStart"
+
+
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/issue_content" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/issueFab"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/CadetBlue"
+        app:backgroundTint="@color/CadetBlue"
+        app:rippleColor="#1cefc8"
+        app:srcCompat="@drawable/issue_add_24dp"
+        tools:ignore="VectorDrawableCompat"
+
+
+        />
+
+</android.support.design.widget.CoordinatorLayout>

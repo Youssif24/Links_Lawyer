@@ -1,4 +1,4 @@
-package com.saad.youssif.arabiclawyer.ui;
+package com.saad.youssif.arabiclawyer.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.saad.youssif.arabiclawyer.DBHelper;
+import com.saad.youssif.arabiclawyer.Helpers.DBHelper;
 import com.saad.youssif.arabiclawyer.R;
 
 public class NewClient extends AppCompatActivity {
@@ -37,7 +37,7 @@ public class NewClient extends AppCompatActivity {
                 if(checkAdding==true)
                 {
                     Toast.makeText(NewClient.this,"تمت الإضافة بنجاح",Toast.LENGTH_LONG).show();
-                    ClientActivity.clientAdapter.notifyDataSetChanged();
+                    emptyFields();
                 }
                 else {
                     Toast.makeText(NewClient.this,"لم تتم الإضافة",Toast.LENGTH_LONG).show();
@@ -48,7 +48,11 @@ public class NewClient extends AppCompatActivity {
         });
     }
 
-    public void saveClient()
+    public void emptyFields()
     {
+        NationID.setText("");
+        Name.setText("");
+        Type.setText("");
+        Phone.setText("");
     }
 }

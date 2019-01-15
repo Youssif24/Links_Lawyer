@@ -1,5 +1,6 @@
-package com.saad.youssif.arabiclawyer;
+package com.saad.youssif.arabiclawyer.Activities;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -8,13 +9,25 @@ import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.saad.youssif.arabiclawyer.ui.Home;
+import com.saad.youssif.arabiclawyer.Other.LawyerPresenter;
+import com.saad.youssif.arabiclawyer.View.LoginView;
+import com.saad.youssif.arabiclawyer.R;
+import com.saad.youssif.arabiclawyer.Other.SharedPrefManager;
+
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -66,6 +79,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
             }
         });
+
+        handleSSLHandshake();
     }
 
     @Override
@@ -126,6 +141,39 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         {
             startActivity(new Intent(LoginActivity.this,Home.class));
             LoginActivity.this.finish();
+        }
+    }
+
+    /**
+     * Enables https connections
+     */
+    @SuppressLint("TrulyRandom")
+    public static void handleSSLHandshake() {
+        try {
+            TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
+                public X509Certificate[] getAcceptedIssuers() {
+                    return new X509Certificate[0];
+                }
+
+                @Override
+                public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                }
+
+                @Override
+                public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                }
+            }};
+
+            SSLContext sc = SSLContext.getInstance("SSL");
+            sc.init(null, trustAllCerts, new SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+                @Override
+                public boolean verify(String arg0, SSLSession arg1) {
+                    return true;
+                }
+            });
+        } catch (Exception ignored) {
         }
     }
 }

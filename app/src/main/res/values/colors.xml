@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FF7F50</color>
-    <color name="colorPrimaryDark">#5F9EA0</color>
+    <color name="colorPrimaryDark">#ff672f</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffff</color>
     <color name="black">#000</color>
@@ -42,5 +42,6 @@
     <color name="ForestGreen">#228B22</color>
     <color name="LightSeaGreen">#20B2AA</color>
     <color name="DodgerBlue">#1E90FF</color>
+    <color name="littleRed">#bf0101</color>
 
 </resources>

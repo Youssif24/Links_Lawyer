@@ -1,4 +1,4 @@
-package com.saad.youssif.arabiclawyer;
+package com.saad.youssif.arabiclawyer.View;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

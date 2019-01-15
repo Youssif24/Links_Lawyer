@@ -1,7 +1,9 @@
-package com.saad.youssif.arabiclawyer;
+package com.saad.youssif.arabiclawyer.Other;
 
 import android.app.Application;
 import android.view.ViewConfiguration;
+
+import com.saad.youssif.arabiclawyer.R;
 
 import java.lang.reflect.Field;
 

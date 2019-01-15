@@ -1,15 +1,15 @@
-package com.saad.youssif.arabiclawyer.ui;
+package com.saad.youssif.arabiclawyer.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.saad.youssif.arabiclawyer.R;
 
-public class Glsat extends AppCompatActivity {
+public class Twkeel extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_glsat);
+        setContentView(R.layout.activity_twkeel);
     }
 }

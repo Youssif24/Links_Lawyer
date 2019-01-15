@@ -1,4 +1,4 @@
-package com.saad.youssif.arabiclawyer;
+package com.saad.youssif.arabiclawyer.Other;
 
 import android.content.Context;
 import android.content.SharedPreferences;

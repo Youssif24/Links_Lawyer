@@ -1,11 +1,10 @@
-package com.saad.youssif.arabiclawyer.ui;
+package com.saad.youssif.arabiclawyer.Activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.saad.youssif.arabiclawyer.LoginActivity;
 import com.saad.youssif.arabiclawyer.R;
 
 public class Splash extends AppCompatActivity {

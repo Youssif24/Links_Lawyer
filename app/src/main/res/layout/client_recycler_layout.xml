@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:textDirection="rtl"
+
     >
 
     <android.support.v7.widget.CardView
@@ -14,39 +15,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="5dp"
-        card_view:cardCornerRadius="5dp"
+        card_view:cardCornerRadius="3dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="3dp"
         >
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            >
 
-
-
-            <TextView
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:id="@+id/client_item_name"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="بولا طلعت"
-                />
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:layoutDirection="rtl"
+                >
+                <TextView
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:id="@+id/client_item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="بولا طلعت"
+                    android:layout_marginTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="5dp"
+                    />
 
-            <TextView
-                android:id="@+id/client_item_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="5dp"
-                android:text="نوع القضية"
-                android:layout_gravity="right"
+                <TextView
+                    android:id="@+id/textViewOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="end"
+                    android:gravity="end"
+                    android:paddingLeft="3dp"
+                    android:text="&#8943;"
+                    android:layout_marginLeft="5dp"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/Chocolate"
+                    android:textSize="25sp" />
 
-                />
+            </RelativeLayout>
+
 
             <TextView
                 android:id="@+id/client_item_phone"
@@ -57,6 +75,9 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
 
                 />
 
