@@ -7,20 +7,15 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
-import com.saad.youssif.arabiclawyer.Adapters.ClientAdapter;
 import com.saad.youssif.arabiclawyer.Adapters.IssueAdapter;
 import com.saad.youssif.arabiclawyer.Helpers.DBHelper;
-import com.saad.youssif.arabiclawyer.Model.ClientDB;
 import com.saad.youssif.arabiclawyer.Model.IssueDB;
 import com.saad.youssif.arabiclawyer.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class kadya extends AppCompatActivity {
+public class Issue extends AppCompatActivity {
 
     DBHelper dbHelper;
     RecyclerView issueRecycler;
@@ -39,7 +34,7 @@ public class kadya extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kadya);
+        setContentView(R.layout.activity_issue);
         dbHelper=new DBHelper(this);
         issueRecycler=findViewById(R.id.recyclerIssue);
         floatingActionButton=findViewById(R.id.issueFab);
@@ -53,7 +48,7 @@ public class kadya extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent=new Intent(kadya.this,NewIssue.class);
+                Intent intent=new Intent(Issue.this,NewIssue.class);
                 startActivity(intent);
             }
         });
@@ -79,7 +74,7 @@ public class kadya extends AppCompatActivity {
     public void showData()
     {
         issueList=dbHelper.getAllIssues();
-        issueAdapter=new IssueAdapter(issueList,kadya.this);
+        issueAdapter=new IssueAdapter(issueList,Issue.this);
        // issueAdapter.OnClickListener(this);
         issueRecycler.setAdapter(issueAdapter);
     }

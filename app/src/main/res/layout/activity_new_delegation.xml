@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:textDirection="rtl"
+    android:orientation="vertical"
     android:layoutDirection="rtl"
-    tools:context=".Activities.NewClient">
+    tools:context=".Activities.NewDelegation">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,49 +15,66 @@
         android:textDirection="rtl"
         android:textAlignment="viewStart"
         android:layout_gravity="start"
-        android:layoutDirection="rtl"
         >
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="@color/DarkKhaki"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="إضافة موكل : "
+            app:title="إضافة توكيل : "
             android:layout_gravity="right"
             android:gravity="start"
             android:textDirection="rtl"
             android:textAlignment="viewStart"
-            android:layoutDirection="rtl"
-
             />
 
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layoutDirection="rtl"
+            android:layout_marginTop="@dimen/_20sdp"
             >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="إختر إسم الموكل :"
+                android:layout_marginTop="15dp"
+                android:textSize="@dimen/_13sdp"
+
+                />
+
+            <Spinner
+                android:id="@+id/del_clientsSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textDirection="rtl"
+                android:layoutDirection="rtl"
+                ></Spinner>
+
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 >
                 <EditText
-                    android:id="@+id/new_client_idEt"
+                    android:id="@+id/new_del_numEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="@dimen/_20sdp"
                     android:textStyle="bold"
-                    android:hint="الرقم القومي"
-                    android:layout_marginRight="3dp"
+                    android:hint="رقم التوكيل"
+                    android:layout_marginRight="@dimen/_3sdp"
                     android:textColor="@color/colorPrimary"
                     android:inputType="numberDecimal"
 
@@ -68,17 +84,17 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 >
                 <EditText
-                    android:id="@+id/new_client_nameEt"
+                    android:id="@+id/new_del_orgEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="@dimen/_20sdp"
                     android:textStyle="bold"
-                    android:hint="الإسم"
-                    android:layout_marginRight="3dp"
+                    android:hint="جهة التوثيق"
+                    android:layout_marginRight="@dimen/_3sdp"
                     android:textColor="@color/colorPrimary"
 
                     />
@@ -87,58 +103,35 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 >
                 <EditText
-                    android:id="@+id/new_client_phoneEt"
+                    android:id="@+id/new_del_dateEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="@dimen/_20sdp"
                     android:textStyle="bold"
-                    android:hint="رقم التليفون"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="numberDecimal"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_client_typeEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="نوع القضية"
-                    android:layout_marginRight="3dp"
+                    android:hint="تاريخ التوثيق"
+                    android:layout_marginRight="@dimen/_3sdp"
                     android:textColor="@color/colorPrimary"
 
                     />
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:id="@+id/save_newClient_btn"
-                android:text="حفظ"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:id="@+id/save_newDel_btn"
+                android:text="إضافة"
                 android:background="@drawable/login_btn_selector"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:textSize="@dimen/_15sdp"
 
                 />
-
         </LinearLayout>
     </ScrollView>
-
-
-
-
 
 </LinearLayout>

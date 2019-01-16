@@ -30,22 +30,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Home"
+        <activity
+            android:name=".Activities.Home"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Activities.Sitting"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activities.Delegation"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             />
-        <activity android:name=".Activities.Glsat" />
-        <activity android:name=".Activities.Twkeel" />
-        <activity android:name=".Activities.kadya"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
-        <activity android:name=".Activities.mozkrat" />
+        <activity
+            android:name=".Activities.Issue"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activities.Notes" />
         <activity
             android:name=".Activities.ClientActivity"
             android:label="@string/title_activity_client" />
-        <activity android:name=".Activities.NewClient" />
+        <activity
+            android:name=".Activities.NewClient"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.NewIssue"
-            android:label="@string/title_activity_new_issue"></activity>
+            android:label="@string/title_activity_new_issue"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Activities.NewSitting"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activities.NewDelegation"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>

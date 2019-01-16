@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.saad.youssif.arabiclawyer.R;
 
-public class mozkrat extends AppCompatActivity {
+public class Notes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -59,7 +59,7 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
         ClientDB clientDB=clientList.get(i);
         clientViewHolder.client_item_name.setText(clientDB.getName());
         //cartViewHolder.client_item_type.setText(clientDB.getType());
-        clientViewHolder.client_item_phone.setText("0"+String.valueOf(clientDB.getPhone()));
+        clientViewHolder.client_item_phone.setText(String.valueOf(clientDB.getPhone()));
 
 
         clientViewHolder.itemView.setOnClickListener(new View.OnClickListener() {

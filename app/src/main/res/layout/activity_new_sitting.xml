@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.NewIssue"
+    tools:context=".Activities.NewSitting"
     android:layoutDirection="rtl"
     android:orientation="vertical"
     >
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,14 +22,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/CadetBlue"
+            android:background="@color/teal"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="إضافة قضية : "
+            app:title="إضافة جلسة : "
             android:layout_gravity="right"
             android:gravity="start"
             android:textDirection="rtl"
             android:textAlignment="viewStart"
-
             />
 
     </android.support.design.widget.AppBarLayout>
@@ -44,14 +44,66 @@
             android:layoutDirection="rtl"
             >
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="إختر رقم القضية :"
+                android:layout_marginTop="15dp"
+                android:textSize="@dimen/_13sdp"
+
+                />
+
             <Spinner
-                android:id="@+id/clientSpinner"
+                android:id="@+id/issue_numSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textDirection="rtl"
                 android:layoutDirection="rtl"
-                android:layout_marginTop="15dp"
                 ></Spinner>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                >
+                <EditText
+                    android:id="@+id/new_sitting_clientEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold"
+                    android:hint="إسم الموكل"
+                    android:layout_marginRight="3dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                >
+                <EditText
+                    android:id="@+id/new_sitting_opponentEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textStyle="bold"
+                    android:hint="إسم الخصم"
+                    android:layout_marginRight="3dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15sp"
+
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
 
 
 
@@ -62,12 +114,12 @@
                 android:layout_marginTop="5dp"
                 >
                 <EditText
-                    android:id="@+id/new_issue_numEt"
+                    android:id="@+id/new_sitting_brolEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:textStyle="bold"
-                    android:hint="رقم القضية"
+                    android:hint="رقم البرول"
                     android:layout_marginRight="3dp"
                     android:textColor="@color/colorPrimary"
                     android:inputType="numberDecimal"
@@ -82,14 +134,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="5dp"
+                android:id="@+id/sitting_textInput_delay"
                 >
                 <EditText
-                    android:id="@+id/new_issue_typeEt"
+                    android:id="@+id/new_sitting_delayEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:textStyle="bold"
-                    android:hint="نوع القضية"
+                    android:hint="تاريخ التأجيل"
                     android:layout_marginRight="3dp"
                     android:textColor="@color/colorPrimary"
                     android:textSize="15sp"
@@ -97,14 +150,7 @@
                     />
             </android.support.design.widget.TextInputLayout>
 
-            <Spinner
-                android:id="@+id/tokenSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutDirection="rtl"
-                android:textDirection="rtl"
-                android:layout_marginTop="10dp"
-                ></Spinner>
+
 
 
             <android.support.design.widget.TextInputLayout
@@ -114,70 +160,29 @@
                 android:layout_marginTop="5dp"
                 >
                 <EditText
-                    android:id="@+id/new_issue_opponentEt"
+                    android:id="@+id/new_sitting_judgmentEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="20dp"
                     android:textStyle="bold"
-                    android:hint="إسم الخصم"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15sp"
-
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_issue_courtEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="إسم المحكمة"
+                    android:hint="الحكم"
                     android:layout_marginRight="3dp"
                     android:textColor="@color/colorPrimary"
                     android:textSize="15sp"
 
                     />
             </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                >
-                <EditText
-                    android:id="@+id/new_issue_detailsEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="موضوع القضية"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="15sp"
-
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
 
             <Button
                 android:layout_width="150dp"
                 android:layout_height="50dp"
-                android:id="@+id/save_newIssue_btn"
-                android:text="حفظ"
+                android:id="@+id/save_newSitting_btn"
+                android:text="إضافة"
                 android:background="@drawable/login_btn_selector"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                android:textSize="@dimen/_15sdp"
 
                 />
 

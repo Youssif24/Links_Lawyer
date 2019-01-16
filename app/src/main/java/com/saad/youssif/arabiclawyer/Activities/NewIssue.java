@@ -64,7 +64,7 @@ public class NewIssue extends Activity {
         ArrayAdapter<String> clientsAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, clientList);
 
         // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        clientsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
         clientSpinner.setAdapter(clientsAdapter);

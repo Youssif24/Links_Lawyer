@@ -37,5 +37,7 @@ dependencies {
     implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
     implementation 'com.miguelcatalan:materialsearchview:1.4.0'
     implementation 'com.github.sd6352051:NiftyDialogEffects:v1.0.3'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
 
 }

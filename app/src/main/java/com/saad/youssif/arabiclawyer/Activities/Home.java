@@ -1,7 +1,6 @@
 package com.saad.youssif.arabiclawyer.Activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,7 +11,7 @@ import com.saad.youssif.arabiclawyer.Other.SharedPrefManager;
 import com.saad.youssif.arabiclawyer.R;
 
 public class Home extends AppCompatActivity {
-    Button GlastBtn,MokelBtn,TwkeelBtn,kadyaBtn,mozkratBtn,outBtn;
+    Button GlastBtn,MokelBtn,TwkeelBtn,kadyaBtn,notesBtn,outBtn;
     SharedPrefManager sharedPrefManager;
 
      @Override
@@ -31,13 +30,13 @@ public class Home extends AppCompatActivity {
         MokelBtn=findViewById(R.id.mokel);
         TwkeelBtn=findViewById(R.id.twkeel);
         kadyaBtn=findViewById(R.id.kadya);
-        mozkratBtn=findViewById(R.id.mozkrat);
         outBtn=findViewById(R.id.outBtn);
+        notesBtn=findViewById(R.id.notesBtn);
 
         GlastBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i1=new Intent(Home.this,Glsat.class);
+                Intent i1=new Intent(Home.this,Sitting.class);
                 startActivity(i1);
 
             }
@@ -53,7 +52,7 @@ public class Home extends AppCompatActivity {
         TwkeelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i3=new Intent(Home.this,Twkeel.class);
+                Intent i3=new Intent(Home.this,Delegation.class);
                 startActivity(i3);
 
             }
@@ -61,19 +60,12 @@ public class Home extends AppCompatActivity {
         kadyaBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i4=new Intent(Home.this,kadya.class);
+                Intent i4=new Intent(Home.this,Issue.class);
                 startActivity(i4);
 
             }
         });
-        mozkratBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i5=new Intent(Home.this,mozkrat.class);
-                startActivity(i5);
 
-            }
-        });
 
         outBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,5 +76,13 @@ public class Home extends AppCompatActivity {
             }
         });
 
-    }
-}
+        notesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i4=new Intent(Home.this,Notes.class);
+        startActivity(i4);
+        }
+        });
+
+        }
+        }

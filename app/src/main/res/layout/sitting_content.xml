@@ -6,17 +6,17 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.saad.youssif.arabiclawyer.Activities.Issue"
-    tools:showIn="@layout/activity_client"
+    tools:context="com.saad.youssif.arabiclawyer.Activities.Sitting"
+    tools:showIn="@layout/activity_sitting"
     android:layoutDirection="rtl"
     >
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/issueSwipe"
+        android:id="@+id/sittingSwipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerIssue"
+            android:id="@+id/recyclerSitting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
