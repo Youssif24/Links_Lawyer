@@ -31,7 +31,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_law_book"
+                    android:src="@drawable/ic_editorial_design"
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginLeft="3dp"
@@ -52,7 +52,7 @@
                         android:gravity="right"
                         >
                         <TextView
-                            android:id="@+id/issue_client_name"
+                            android:id="@+id/_item_del_client_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="يوسف سعد"
@@ -62,7 +62,7 @@
                             />
 
                         <ImageView
-                            android:id="@+id/issue_deleteImg"
+                            android:id="@+id/delegation_deleteImg"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_remove2"
@@ -78,56 +78,31 @@
                     </RelativeLayout>
 
                     <TextView
-                        android:id="@+id/issue_num"
+                        android:id="@+id/item_del_num"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="رقم القضية : "
+                        android:text="رقم التوكيل : "
                         android:layout_marginRight="10dp"
 
                         />
 
                     <TextView
-                        android:id="@+id/issue_type"
+                        android:id="@+id/item_del_org"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="نوع القضية : "
+                        android:text="جهة التوثيق : "
                         android:layout_marginRight="10dp"
 
                         />
 
                     <TextView
-                        android:id="@+id/issue_token"
+                        android:id="@+id/item_del_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="صفة الموكل"
-                        android:layout_marginRight="10dp"
-
-                        />
-                    <TextView
-                        android:id="@+id/issue_opponent"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="إسم الخصم : "
-                        android:layout_marginRight="10dp"
-
-                        />
-                    <TextView
-                        android:id="@+id/issue_court"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="إسم المحكمة : "
-                        android:layout_marginRight="10dp"
-                        />
-
-                    <TextView
-                        android:id="@+id/issue_details"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="موضوع القضية : "
+                        android:text="تاريخ التوثيق"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
                         />
-
 
                 </LinearLayout>
 

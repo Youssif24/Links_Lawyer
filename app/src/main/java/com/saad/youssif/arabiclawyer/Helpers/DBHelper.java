@@ -320,8 +320,8 @@ public class DBHelper extends SQLiteOpenHelper {
             DelegationDB delegationDB=new DelegationDB();
             delegationDB.setDel_num(cursor.getString(0));
             delegationDB.setDel_client_name(cursor.getString(1));
-            delegationDB.setDel_org_del_date(cursor.getString(2));
-            delegationDB.setDel_org_del_date(cursor.getString(3));
+            delegationDB.setDel_org(cursor.getString(2));
+            delegationDB.setDel_date(cursor.getString(3));
 
             arrayList.add(delegationDB);
             cursor.moveToNext();

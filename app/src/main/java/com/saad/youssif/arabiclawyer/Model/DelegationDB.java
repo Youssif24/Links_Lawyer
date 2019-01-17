@@ -2,7 +2,7 @@ package com.saad.youssif.arabiclawyer.Model;
 
 public class DelegationDB {
 
-    String del_num,del_client_name,del_org_del_date,del_photo;
+    String del_num,del_client_name,del_org,del_date,del_photo;
 
     public String getDel_num() {
         return del_num;
@@ -10,6 +10,22 @@ public class DelegationDB {
 
     public void setDel_num(String del_num) {
         this.del_num = del_num;
+    }
+
+    public String getDel_org() {
+        return del_org;
+    }
+
+    public void setDel_org(String del_org) {
+        this.del_org = del_org;
+    }
+
+    public String getDel_date() {
+        return del_date;
+    }
+
+    public void setDel_date(String del_date) {
+        this.del_date = del_date;
     }
 
     public String getDel_client_name() {
@@ -20,13 +36,7 @@ public class DelegationDB {
         this.del_client_name = del_client_name;
     }
 
-    public String getDel_org_del_date() {
-        return del_org_del_date;
-    }
 
-    public void setDel_org_del_date(String del_org_del_date) {
-        this.del_org_del_date = del_org_del_date;
-    }
 
     public String getDel_photo() {
         return del_photo;

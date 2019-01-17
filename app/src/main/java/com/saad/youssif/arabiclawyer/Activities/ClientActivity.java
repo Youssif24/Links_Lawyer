@@ -114,6 +114,7 @@ public class ClientActivity extends Activity implements Update_View{
                 if(dbHelper.updateData(id,newName.getText().toString(),tybe,newPhone.getText().toString()))
                 {
                    showData();
+                   Toast.makeText(ClientActivity.this,"تم التعديل ",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -134,5 +135,11 @@ public class ClientActivity extends Activity implements Update_View{
 
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showData();
     }
 }
