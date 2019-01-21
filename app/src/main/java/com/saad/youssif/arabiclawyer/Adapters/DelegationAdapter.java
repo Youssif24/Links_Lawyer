@@ -17,7 +17,9 @@ import com.saad.youssif.arabiclawyer.R;
 
 import java.util.List;
 
+import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Newspager;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
+import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slit;
 
 public class DelegationAdapter extends RecyclerView.Adapter<DelegationAdapter.DelegationViewHolder> {
     private List<DelegationDB> delegationsList;
@@ -28,6 +30,7 @@ public class DelegationAdapter extends RecyclerView.Adapter<DelegationAdapter.De
         this.delegationsList = delegationsList;
         this.ctx=context;
         dbHelper=new DBHelper(ctx);
+
 
     }
 
@@ -63,10 +66,10 @@ public class DelegationAdapter extends RecyclerView.Adapter<DelegationAdapter.De
                         .withDividerColor("#11000000")
                         .withMessage("هل تريد حذف هذا التوكيل ؟")
                         .withMessageColor("#FFFFFFFF")
-                        .withDialogColor("#bf0101")
+                        .withDialogColor("#3D5069")
                         .withIcon(R.drawable.delete_forever_24dp)
                         .withDuration(600)
-                        .withEffect(Slidetop)
+                        .withEffect(Slit)
                         .withButton1Text("إلغاء")
                         .withButton2Text("حذف")
                         .isCancelableOnTouchOutside(false)

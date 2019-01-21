@@ -6,20 +6,39 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.saad.youssif.arabiclawyer.Other.LawyerPresenter;
 import com.saad.youssif.arabiclawyer.View.LoginView;
 import com.saad.youssif.arabiclawyer.R;
 import com.saad.youssif.arabiclawyer.Other.SharedPrefManager;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 
 import javax.net.ssl.HostnameVerifier;
@@ -27,6 +46,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -39,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     ProgressDialog progressDialog;
     ConnectivityManager connectivityManager;
     SharedPrefManager sharedPrefManager;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -52,11 +73,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         enterBtn=findViewById(R.id.signInBtn);
         nameEt=findViewById(R.id.login_nameEt);
         passwordEt=findViewById(R.id.login_passwordEt);
+        firebaseAuth=FirebaseAuth.getInstance();
         progressDialog=new ProgressDialog(this);
         lawyerPresenter=new LawyerPresenter(this,this);
         sharedPrefManager=SharedPrefManager.getInstance(this);
         connectivityManager= (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         register_from_shrd();
+        handleSSLHandshake();
+
         enterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,9 +88,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                 {
                     if(validateData())
                     {
-                        progressDialog.setMessage("جاري تسجيل الدخول........");
+                     progressDialog.setMessage("جاري تسجيل الدخول........");
                         progressDialog.show();
-                        lawyerPresenter.lawyerLogin(nameEt.getText().toString(),passwordEt.getText().toString());
+                      //  userLogin();
+                       lawyerPresenter.lawyerLogin(nameEt.getText().toString(),passwordEt.getText().toString());
+
 
 
                     }
@@ -80,7 +106,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             }
         });
 
-        handleSSLHandshake();
+
     }
 
     @Override
@@ -126,6 +152,28 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             return true;
         }
 
+    }
+
+    public void userLogin()
+    {
+        String username=nameEt.getText().toString().trim();
+        String password=passwordEt.getText().toString().trim();
+        firebaseAuth.signInWithEmailAndPassword(username,password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            Toast.makeText(LoginActivity.this,"تم تسجيل الدخول بنجاح",Toast.LENGTH_LONG).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(LoginActivity.this,"لم يتم تسجيل الدخول",Toast.LENGTH_LONG).show();
+                        }
+                        progressDialog.dismiss();
+
+                    }
+                });
     }
 
     public void save_user_data(String username,String password)
@@ -176,4 +224,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         } catch (Exception ignored) {
         }
     }
+
+
+
 }

@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     //public static final String BASE_URL = "http://192.168.1.23:4445/AndroidAPI/";
-    public static final String BASE_URL = "https://arabiclawyer.000webhostapp.com/";
+    public static final String BASE_URL = "http://arabiclawyer.000webhostapp.com/";
     // public static final String BASE_URL = "http://www.smartpan.com.sa:1002/AndroidAPI/";
 
     private static Retrofit retrofit = null;

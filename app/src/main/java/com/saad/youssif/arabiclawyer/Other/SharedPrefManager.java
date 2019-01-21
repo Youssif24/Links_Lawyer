@@ -7,6 +7,8 @@ public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "LawyerLogin";
     private static final String TAG_NAME = "username";
     private static final String TAG_PASSWORD = "password";
+    private static final String TAG_ID = "id";
+
     private String name,id,password;
 
 
@@ -58,6 +60,21 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear().commit();
 
+    }
+
+    public void setClientId(String id)
+    {
+        this.id = id;
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(TAG_ID, id);
+        editor.apply();
+    }
+
+    public String getClientId()
+    {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return  sharedPreferences.getString(TAG_ID, null);
     }
 
 

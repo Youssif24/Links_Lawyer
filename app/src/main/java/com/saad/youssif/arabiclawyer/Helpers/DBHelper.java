@@ -12,6 +12,7 @@ import com.saad.youssif.arabiclawyer.Model.IssueDB;
 import com.saad.youssif.arabiclawyer.Model.SittingDB;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DBname="data.db";
@@ -354,6 +355,69 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+
+
+    public ArrayList getClient_frag_issues(String client_name)
+    {
+        IssueDB issueDB = null;
+        ArrayList<IssueDB>issueDBList=new ArrayList<>();
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from Issue where issue_client_name='"+client_name+"'" ,null);
+        cursor.moveToFirst();//move to the first field
+        while (cursor.isAfterLast()==false)//last field
+        {
+            issueDB=new IssueDB();
+            issueDB.setNum(cursor.getString(0));
+            issueDB.setToken(cursor.getString(2));
+            issueDB.setOpponent_name(cursor.getString(4));
+            issueDBList.add(issueDB);
+            cursor.moveToNext();
+        }
+        return issueDBList;
+
+    }
+
+    public ArrayList getClient_frag_sittings(String client_name)
+    {
+        SittingDB sittingDB = null;
+        ArrayList<SittingDB>sittingDBArrayList=new ArrayList<>();
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from Sitting where client_name='"+client_name+"'" ,null);
+        cursor.moveToFirst();//move to the first field
+        while (cursor.isAfterLast()==false)//last field
+        {
+            sittingDB=new SittingDB();
+            sittingDB.setSitting_issue_num(cursor.getString(1));
+            sittingDB.setOpponent_name(cursor.getString(3));
+            sittingDB.setBrol_num(cursor.getString(4));
+
+            sittingDBArrayList.add(sittingDB);
+            cursor.moveToNext();
+        }
+        return sittingDBArrayList;
+
+    }
+
+    public ArrayList getClient_frag_delegations(String client_name)
+    {
+        DelegationDB delegationDB = null;
+        ArrayList<DelegationDB>sittingDBArrayList=new ArrayList<>();
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from Delegation where del_client_name='"+client_name+"'" ,null);
+        cursor.moveToFirst();//move to the first field
+        while (cursor.isAfterLast()==false)//last field
+        {
+            delegationDB=new DelegationDB();
+            delegationDB.setDel_num(cursor.getString(0));
+            delegationDB.setDel_org(cursor.getString(2));
+            delegationDB.setDel_date(cursor.getString(3));
+
+            sittingDBArrayList.add(delegationDB);
+            cursor.moveToNext();
+        }
+        return sittingDBArrayList;
+
+    }
 
 
 

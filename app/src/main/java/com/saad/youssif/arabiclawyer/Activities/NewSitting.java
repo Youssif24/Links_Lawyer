@@ -133,9 +133,6 @@ public class NewSitting extends AppCompatActivity {
                 {
                     Toast.makeText(NewSitting.this,"تم حفظ البيانات",Toast.LENGTH_LONG).show();
                     emptyFields();
-                    List<SittingDB> testSitting=new ArrayList<>();
-                    testSitting=dbHelper.getAllSitting();
-                    Toast.makeText(NewSitting.this,testSitting.get(0).getClient_name(),Toast.LENGTH_LONG).show();
 
                 }
                 else

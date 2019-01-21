@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "84348247196",
+    "firebase_url": "https://lawyer-af009.firebaseio.com",
+    "project_id": "lawyer-af009",
+    "storage_bucket": "lawyer-af009.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84348247196:android:fe0be644cb59ae60",
+        "android_client_info": {
+          "package_name": "com.saad.youssif.arabiclawyer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84348247196-20mtel08t49d4uo40puvbarp2m9div41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiyBtvNSIg2SVpSn32HmjHHmTchf8tIXQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

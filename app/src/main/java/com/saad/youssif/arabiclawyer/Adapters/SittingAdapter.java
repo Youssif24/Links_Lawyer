@@ -18,6 +18,7 @@ import com.saad.youssif.arabiclawyer.View.Update_View;
 
 import java.util.List;
 
+import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Fliph;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
 
 public class SittingAdapter extends RecyclerView.Adapter<SittingAdapter.SittingViewHolder> {
@@ -65,10 +66,10 @@ public class SittingAdapter extends RecyclerView.Adapter<SittingAdapter.SittingV
                         .withDividerColor("#11000000")
                         .withMessage("هل تريد حذف هذه الجلسة ؟")
                         .withMessageColor("#FFFFFFFF")
-                        .withDialogColor("#bf0101")
+                        .withDialogColor("#3D5069")
                         .withIcon(R.drawable.delete_forever_24dp)
                         .withDuration(600)
-                        .withEffect(Slidetop)
+                        .withEffect(Fliph)
                         .withButton1Text("إلغاء")
                         .withButton2Text("حذف")
                         .isCancelableOnTouchOutside(false)

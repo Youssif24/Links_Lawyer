@@ -18,6 +18,7 @@ import com.saad.youssif.arabiclawyer.View.Update_View;
 
 import java.util.List;
 
+import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.RotateBottom;
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.Slidetop;
 
 public class IssueAdapter extends RecyclerView.Adapter<IssueAdapter.IssueViewHolder> {
@@ -67,10 +68,10 @@ public class IssueAdapter extends RecyclerView.Adapter<IssueAdapter.IssueViewHol
                         .withDividerColor("#11000000")
                         .withMessage("هل تريد حذف هذه القضية ؟")
                         .withMessageColor("#FFFFFFFF")
-                        .withDialogColor("#bf0101")
+                        .withDialogColor("#3D5069")
                         .withIcon(R.drawable.delete_forever_24dp)
                         .withDuration(600)
-                        .withEffect(Slidetop)
+                        .withEffect(RotateBottom)
                         .withButton1Text("إلغاء")
                         .withButton2Text("حذف")
                         .isCancelableOnTouchOutside(false)
