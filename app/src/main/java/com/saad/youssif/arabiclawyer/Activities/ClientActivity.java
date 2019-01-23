@@ -35,12 +35,7 @@ public class ClientActivity extends AppCompatActivity implements Update_View {
     ClientAdapter clientAdapter;
     RecyclerView.LayoutManager layoutManager;
     FloatingActionButton floatingActionButton;
-    //android.support.v4.widget.SwipeRefreshLayout refreshLayout;
-    private SearchView searchView;
 
-   // public Context c;
-    public Button yes, no;
-    EditText nameEt,phoneEt;
 
 
      @Override
@@ -75,20 +70,6 @@ public class ClientActivity extends AppCompatActivity implements Update_View {
         });
 
 
-       /* refreshLayout.setOnRefreshListener(new android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-               // KToast.customColorToast(MainActivity.this,"Refreshing...", Gravity.BOTTOM,KToast.LENGTH_SHORT, R.color.DarkMain);
-
-                //Toast.makeText(MainActivity.this,"Refreshing...",Toast.LENGTH_SHORT).show();
-                     showData();
-                     if(refreshLayout.isRefreshing())
-                {
-                    refreshLayout.setRefreshing(false);
-                }
-
-            }
-        });*/
 
     }
 
@@ -155,7 +136,7 @@ public class ClientActivity extends AppCompatActivity implements Update_View {
 
 
     @Override
-    public void list(final String id, final String tybe, String phone, String name, int position) {
+    public void list(final String id, final String tybe, String phone, final String name, int position) {
         final Dialog dialog = new Dialog(ClientActivity.this);
         dialog.setContentView(R.layout.update_client_custom_dialog);
 
@@ -170,10 +151,13 @@ public class ClientActivity extends AppCompatActivity implements Update_View {
         editDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(dbHelper.updateData(id,newName.getText().toString(),tybe,newPhone.getText().toString()))
+                if(dbHelper.updateData(id,newName.getText().toString().trim(),tybe,newPhone.getText().toString().trim()))
                 {
-                    showData();
-                    Toast.makeText(ClientActivity.this,"تم التعديل ",Toast.LENGTH_SHORT).show();
+                    if(dbHelper.updateSingleClient(name,newName.getText().toString().trim()))
+                    {
+                        showData();
+                        Toast.makeText(ClientActivity.this,"تم التعديل ",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {

@@ -30,7 +30,7 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
     private List<ClientDB> clientListFull;
     Context ctx;
     DBHelper dbHelper;
-    public static String name, phone, id, type;
+    public static String name;
     Update_View update_view;
 
     public ClientAdapter(List<ClientDB> clientList, Context context) {
@@ -157,13 +157,12 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ClientView
 
 
     public  class ClientViewHolder extends RecyclerView.ViewHolder {
-        TextView client_item_name, client_item_type, client_item_phone, clientOption;
+        TextView client_item_name, client_item_phone, clientOption;
 
 
         public ClientViewHolder(View item) {
             super(item);
             client_item_name = item.findViewById(R.id.client_item_name);
-            //client_item_type=item.findViewById(R.id.client_item_type);
             client_item_phone = item.findViewById(R.id.client_item_phone);
             clientOption = item.findViewById(R.id.textViewOptions);
 

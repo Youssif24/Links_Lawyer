@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.security.ProviderInstaller;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -59,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     ProgressDialog progressDialog;
     ConnectivityManager connectivityManager;
     SharedPrefManager sharedPrefManager;
-    FirebaseAuth firebaseAuth;
+  //  FirebaseAuth firebaseAuth;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -73,13 +76,14 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         enterBtn=findViewById(R.id.signInBtn);
         nameEt=findViewById(R.id.login_nameEt);
         passwordEt=findViewById(R.id.login_passwordEt);
-        firebaseAuth=FirebaseAuth.getInstance();
+        //firebaseAuth=FirebaseAuth.getInstance();
         progressDialog=new ProgressDialog(this);
         lawyerPresenter=new LawyerPresenter(this,this);
         sharedPrefManager=SharedPrefManager.getInstance(this);
         connectivityManager= (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         register_from_shrd();
         handleSSLHandshake();
+        initializeSSLContext(this);
 
         enterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                      progressDialog.setMessage("جاري تسجيل الدخول........");
                         progressDialog.show();
                       //  userLogin();
-                       lawyerPresenter.lawyerLogin(nameEt.getText().toString(),passwordEt.getText().toString());
+                       lawyerPresenter.lawyerLogin(nameEt.getText().toString().trim(),passwordEt.getText().toString().trim());
 
 
 
@@ -154,7 +158,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     }
 
-    public void userLogin()
+  /*  public void userLogin()
     {
         String username=nameEt.getText().toString().trim();
         String password=passwordEt.getText().toString().trim();
@@ -174,7 +178,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
                     }
                 });
-    }
+    }*/
 
     public void save_user_data(String username,String password)
     {
@@ -225,6 +229,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         }
     }
 
-
+    public static void initializeSSLContext(Context mContext) {
+        try {
+            SSLContext.getInstance("TLSv1.2");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        try {
+            ProviderInstaller.installIfNeeded(mContext.getApplicationContext());
+        } catch (GooglePlayServicesRepairableException e) {
+            e.printStackTrace();
+        } catch (GooglePlayServicesNotAvailableException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

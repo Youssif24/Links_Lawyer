@@ -51,7 +51,6 @@ public class SingleClient extends FragmentActivity {
         phoneTv = findViewById(R.id.single_client_phone);
         typeTv = findViewById(R.id.single_client_type);
         getIntentData();
-      //  sendArgumentToFragments(clientID);
 
     }
 
@@ -87,14 +86,5 @@ public class SingleClient extends FragmentActivity {
         }
     }
 
-    public void sendArgumentToFragments(String id)
-    {
-        IssuesFragment issuesFragment=new IssuesFragment();
-        SittingFragment sittingFragment=new SittingFragment();
-        DelegationFragment delegationFragment=new DelegationFragment();
-        Bundle data=new Bundle();
-        data.putString("data","this is arguments");
-        issuesFragment.setArguments(data);
 
-    }
 }

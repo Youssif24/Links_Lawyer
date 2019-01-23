@@ -38,7 +38,7 @@ public class LawyerPresenter {
                 }
                 else
                 {
-                    Toast.makeText(context,"error",Toast.LENGTH_LONG);
+                    Toast.makeText(context,"error",Toast.LENGTH_LONG).show();
 
                 }
 
@@ -46,7 +46,7 @@ public class LawyerPresenter {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(context,t.toString(),Toast.LENGTH_LONG).show();
+               Toast.makeText(context,t.toString(),Toast.LENGTH_LONG).show();
 
             }
 

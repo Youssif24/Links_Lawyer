@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.saad.youssif.arabiclawyer.Model.ClientDB;
 import com.saad.youssif.arabiclawyer.Model.DelegationDB;
 import com.saad.youssif.arabiclawyer.Model.IssueDB;
+import com.saad.youssif.arabiclawyer.Model.NoteDB;
 import com.saad.youssif.arabiclawyer.Model.SittingDB;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import java.util.List;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DBname="data.db";
     public DBHelper(Context context) {
-        super(context, DBname, null, 2);
+        super(context, DBname, null, 1);
     }
 
     @Override
@@ -26,6 +27,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("Create table Issue (issue_num INTEGER PRIMARY KEY,issue_type TEXT,issue_token TEXT,issue_client_name TEXT,issue_opponent_name TEXT,court_name TEXT,issue_details TEXT)");
         db.execSQL("Create table Sitting (id INTEGER PRIMARY KEY AUTOINCREMENT ,sitting_issue_num TEXT,client_name TEXT,opponent_name TEXT,brol_num TEXT ,delay_date TEXT,judgment TEXT)");
         db.execSQL("Create table Delegation(del_num INTEGER PRIMARY KEY,del_client_name TEXT,del_org TEXT,del_date TEXT,del_photo TEXT)");
+        db.execSQL("Create table Note (id INTEGER PRIMARY KEY AUTOINCREMENT ,court_name TEXt,client_type TEXT ,opponent_type TEXT ,prev_sitting TEXT,decision TEXT )");
+
 
 
     }
@@ -36,6 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Issue");
         db.execSQL("DROP TABLE IF EXISTS Sitting");
         db.execSQL("DROP TABLE IF EXISTS Delegation");
+        db.execSQL("DROP TABLE IF EXISTS Note");
 
         onCreate(db);
 
@@ -69,10 +73,6 @@ public class DBHelper extends SQLiteOpenHelper {
             clientDB.setName(cursor.getString(1));
             clientDB.setType(cursor.getString(2));
             clientDB.setPhone(cursor.getString(3));
-           /* String t1=cursor.getString(0);
-            String t2=cursor.getString(1);
-            String t3=cursor.getString(2);
-            String t4=cursor.getString(3);*/
             arrayList.add(clientDB);
             cursor.moveToNext();
 
@@ -194,7 +194,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //update an issue
-    public boolean updateIssue(String issue_num,String issue_type,String issue_token,String issue_client_name
+    /*public boolean updateIssue(String issue_num,String issue_type,String issue_token,String issue_client_name
             ,String issue_opponent_name,String court_name,String issue_details){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
@@ -209,7 +209,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.update("Issue",contentValues,"issue_num= ?",new String[]{String.valueOf(issue_num)});
 
         return true;
-    }
+    }*/
 
     //delete an issue
     public Integer deleteIssue(String issue_num){
@@ -266,7 +266,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // update a sitting
-    public boolean updateSitting(String id,String issue_num,String client_name,String opponent_name,String brol_num
+   /* public boolean updateSitting(String id,String issue_num,String client_name,String opponent_name,String brol_num
             ,String delay_date,String judgment){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
@@ -280,7 +280,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.update("Sitting",contentValues,"id= ?",new String[]{String.valueOf(id)});
         return true;
-    }
+    }*/
     //delete an Sitting
     public Integer deleteSitting(String id){
         SQLiteDatabase db=this.getWritableDatabase();
@@ -333,7 +333,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // update a Delegation
-    public boolean updateDelegation(String del_num,String del_client_name,String del_org,String del_date)
+   /* public boolean updateDelegation(String del_num,String del_client_name,String del_org,String del_date)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
@@ -345,7 +345,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.update("Delegation",contentValues,"del_num= ?",new String[]{String.valueOf(del_num)});
         return true;
-    }
+    }*/
 
     //delete an Delegation
     public Integer deleteDelegation(String del_num){
@@ -419,6 +419,74 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
+    //function to insert data (to get writale)
+    public boolean insertNote(String court_name,String client_type,String opponent_type,String prev_sitting,String decision){
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("court_name",court_name);
+        contentValues.put("client_type",client_type);
+        contentValues.put("opponent_type",opponent_type);
+        contentValues.put("prev_sitting",prev_sitting);
+        contentValues.put("decision",decision);
+
+
+        long result=db.insert("Note",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+    //function to reterieve data(to get readable)
+    public ArrayList getAllNotes(){
+        ArrayList<NoteDB> arrayList=new ArrayList();
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from Note" ,null);
+        cursor.moveToFirst();//move to the first field
+        while (cursor.isAfterLast()==false)//last field
+        {
+            NoteDB noteDB=new NoteDB();
+            noteDB.setId(cursor.getInt(0));
+            noteDB.setCourt_name(cursor.getString(1));
+            noteDB.setClient(cursor.getString(2));
+            noteDB.setOpponent(cursor.getString(3));
+            noteDB.setPrev_sitting(cursor.getString(4));
+            noteDB.setDecision(cursor.getString(5));
+
+            arrayList.add(noteDB);
+            cursor.moveToNext();
+
+        }
+        return arrayList;
+
+    }
+
+    //delete an notes
+    public Integer deleteNotes(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        return db.delete("Note","id= ?",new String[]{id});
+    }
+
+
+    // update a Delegation
+    public boolean updateSingleClient(String oldName,String newName)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("issue_client_name",newName);
+        db.update("Issue",contentValues,"issue_client_name= ?",new String[]{oldName});
+
+        SQLiteDatabase db2 =this.getWritableDatabase();
+        ContentValues contentValues2=new ContentValues();
+        contentValues2.put("client_name",newName);
+        db2.update("Sitting",contentValues2,"client_name= ?",new String[]{oldName});
+
+        SQLiteDatabase db3 =this.getWritableDatabase();
+        ContentValues contentValues3=new ContentValues();
+        contentValues3.put("del_client_name",newName);
+        db3.update("Delegation",contentValues3,"del_client_name= ?",new String[]{oldName});
+
+        return true;
+    }
 
 
 

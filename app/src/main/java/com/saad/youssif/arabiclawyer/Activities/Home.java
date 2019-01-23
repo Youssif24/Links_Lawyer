@@ -7,8 +7,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 import com.saad.youssif.arabiclawyer.Other.SharedPrefManager;
 import com.saad.youssif.arabiclawyer.R;
+
+import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.RotateBottom;
 
 public class Home extends AppCompatActivity {
     Button GlastBtn,MokelBtn,TwkeelBtn,kadyaBtn,notesBtn,outBtn;
@@ -70,9 +73,43 @@ public class Home extends AppCompatActivity {
         outBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedPrefManager.clearSharedData();
-                startActivity(new Intent(Home.this,LoginActivity.class));
-                Home.this.finish();
+                final NiftyDialogBuilder dialogBuilder= NiftyDialogBuilder.getInstance(Home.this);
+
+                dialogBuilder
+                        .withTitle("تسجيل خروج")
+                        .withTitleColor("#FFFFFF")
+                        .withDividerColor("#11000000")
+                        .withMessage("هل تريد تسجيل الخروج ؟")
+                        .withMessageColor("#FFFFFFFF")
+                        .withDialogColor("#3D5069")
+                        .withIcon(R.drawable.delete_forever_24dp)
+                        .withDuration(600)
+                        .withEffect(RotateBottom)
+                        .withButton1Text("لا")
+                        .withButton2Text("نعم")
+                        .isCancelableOnTouchOutside(false)
+
+                        //.setCustomView(R.layout.alert_dialog_custom_view,v.getContext())         //.setCustomView(View or ResId,context)
+                        .setButton1Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                dialogBuilder.dismiss();
+                                return;
+                            }
+                        })
+                        .setButton2Click(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                sharedPrefManager.clearSharedData();
+                                startActivity(new Intent(Home.this,LoginActivity.class));
+                                Home.this.finish();
+                                dialogBuilder.dismiss();
+                                return;
+                            }
+                        })
+                        .show();
+
             }
         });
 
