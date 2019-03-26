@@ -42,7 +42,7 @@ public class FragSittingAdapter extends RecyclerView.Adapter<FragSittingAdapter.
        // sittingViewHolder.sitting_client.setText(sittingList.get(i).getClient_name());
         sittingViewHolder.issue_num.setText("رقم القضية:  "+sittingDB.getSitting_issue_num());
         sittingViewHolder.sitting_opponent.setText("إسم الخصم :  "+sittingDB.getOpponent_name());
-        sittingViewHolder.sitting_brol.setText("رقم البرول:  "+sittingDB.getBrol_num());
+        sittingViewHolder.sitting_brol.setText("رقم الرول:  "+sittingDB.getBrol_num());
        // sittingViewHolder.sitting_delay.setText("تاريخ التأجيل:  "+sittingDB.getDelay_date());
        // sittingViewHolder.sitting_judgment.setText("الحكم:  "+sittingDB.getJudgment());
 

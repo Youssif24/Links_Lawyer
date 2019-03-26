@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:textDirection="rtl"
+    android:layoutDirection="rtl"
+    tools:context=".Activities.DelaySitting">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:textDirection="rtl"
+        android:textAlignment="viewStart"
+        android:layout_gravity="start"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/delayToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/teal"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="تأجيل جلسة "
+            android:layout_gravity="right"
+            android:gravity="start"
+            android:textDirection="rtl"
+            android:textAlignment="viewStart"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="تم تأجيل الجلسة الي : "
+        android:layout_marginRight="3dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginBottom="3dp"
+        />
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/delayListView"
+        android:layout_marginRight="5dp"
+        ></ListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/gray"
+        />
+
+    <Button
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:id="@+id/delay_btn"
+        android:text="تأجيل الجلسة"
+        android:background="@drawable/login_btn_selector"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+
+        />
+
+
+
+</LinearLayout>

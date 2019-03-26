@@ -85,7 +85,7 @@ public class NewSitting extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 IssueDB issueDB=new IssueDB();
-                issueDB=dbHelper.getClient_Opponent_name(Integer.valueOf(issue_numSpinner.getSelectedItem().toString()));
+                issueDB=dbHelper.getClient_Opponent_name(issue_numSpinner.getSelectedItem().toString());
                 opponent_name.setText(issueDB.getOpponent_name().toString());
                 client_nameEt.setText(issueDB.getClient_name().toString());
             }

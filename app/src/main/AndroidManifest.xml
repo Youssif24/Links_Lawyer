@@ -39,9 +39,9 @@
         <activity
             android:name=".Activities.Issue"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activities.Notes"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
+        <activity
+            android:name=".Activities.Notes"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Activities.ClientActivity"
             android:label="@string/title_activity_client"
@@ -62,7 +62,10 @@
         <activity
             android:name=".Activities.SingleClient"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activities.NewNote"
+        <activity
+            android:name=".Activities.NewNote"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activities.DelaySitting"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             ></activity>
     </application>

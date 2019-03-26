@@ -2,7 +2,21 @@ package com.saad.youssif.arabiclawyer.Model;
 
 public class NoteDB {
 
-    String court_name,client,opponent,prev_sitting,decision;
+    String court_name;
+    String client;
+    String opponent;
+    String prev_sitting;
+    String decision;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    String date;
     int id;
 
     public int getId() {

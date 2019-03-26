@@ -47,7 +47,7 @@ public class FragIssueAdpater extends RecyclerView.Adapter<FragIssueAdpater.Issu
         IssueDB issueDB=issueList.get(i);
         //issueViewHolder.issue_client.setText(issueDB.getClient_name());
         issueViewHolder.issue_num.setText("رقم القضية: "+issueDB.getNum());
-       // issueViewHolder.issue_type.setText("نوع القضية: "+issueDB.getType());
+        issueViewHolder.issue_type.setText("نوع القضية: "+issueDB.getType());
         issueViewHolder.issue_opponent.setText("إسم الخصم: "+issueDB.getOpponent_name());
       //  issueViewHolder.issue_court.setText("إسم المحكمة: "+issueDB.getCourt_name());
         issueViewHolder.issue_token.setText("صفة الموكل: "+issueDB.getToken());
@@ -71,7 +71,7 @@ public class FragIssueAdpater extends RecyclerView.Adapter<FragIssueAdpater.Issu
            // issue_client=item.findViewById(R.id.issue_client_name);
             issue_token=item.findViewById(R.id.frag_issue_token);
             issue_opponent=item.findViewById(R.id.frag_issue_opponent);
-          //  issue_type=item.findViewById(R.id.issue_type);
+            issue_type=item.findViewById(R.id.frag_issue_type);
           //  issue_court=item.findViewById(R.id.issue_court);
          //   issue_details=item.findViewById(R.id.issue_details);
             //deleteImg=item.findViewById(R.id.issue_deleteImg);

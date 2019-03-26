@@ -24,10 +24,11 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table Client ( id  INTEGER PRIMARY KEY,name TEXT,type TEXT, phone TEXT)");
-        db.execSQL("Create table Issue (issue_num INTEGER PRIMARY KEY,issue_type TEXT,issue_token TEXT,issue_client_name TEXT,issue_opponent_name TEXT,court_name TEXT,issue_details TEXT)");
+        db.execSQL("Create table Issue (issue_num TEXT PRIMARY KEY,issue_type TEXT,issue_token TEXT,issue_client_name TEXT,issue_opponent_name TEXT,court_name TEXT,issue_details TEXT)");
         db.execSQL("Create table Sitting (id INTEGER PRIMARY KEY AUTOINCREMENT ,sitting_issue_num TEXT,client_name TEXT,opponent_name TEXT,brol_num TEXT ,delay_date TEXT,judgment TEXT)");
         db.execSQL("Create table Delegation(del_num INTEGER PRIMARY KEY,del_client_name TEXT,del_org TEXT,del_date TEXT,del_photo TEXT)");
-        db.execSQL("Create table Note (id INTEGER PRIMARY KEY AUTOINCREMENT ,court_name TEXt,client_type TEXT ,opponent_type TEXT ,prev_sitting TEXT,decision TEXT )");
+        db.execSQL("Create table Note (id INTEGER PRIMARY KEY AUTOINCREMENT ,court_name TEXt,client_type TEXT ,opponent_type TEXT ,prev_sitting TEXT,decision TEXT ,date TEXT)");
+        db.execSQL("Create table DelaySitting(id INTEGER PRIMARY KEY AUTOINCREMENT,sitting_id TEXT,date TEXT)");
 
 
 
@@ -40,6 +41,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Sitting");
         db.execSQL("DROP TABLE IF EXISTS Delegation");
         db.execSQL("DROP TABLE IF EXISTS Note");
+        db.execSQL("DROP TABLE IF EXISTS DelaySitting");
+
 
         onCreate(db);
 
@@ -175,11 +178,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public IssueDB getClient_Opponent_name(int num)
+    public IssueDB getClient_Opponent_name(String num)
     {
         IssueDB issueDB = null;
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor cursor=db.rawQuery("Select * from Issue where issue_num="+num ,null);
+        Cursor cursor=db.rawQuery("Select * from Issue where issue_num='"+num+"'" ,null);
         cursor.moveToFirst();//move to the first field
         while (cursor.isAfterLast()==false)//last field
         {
@@ -368,8 +371,10 @@ public class DBHelper extends SQLiteOpenHelper {
         {
             issueDB=new IssueDB();
             issueDB.setNum(cursor.getString(0));
+            issueDB.setType(cursor.getString(1));
             issueDB.setToken(cursor.getString(2));
             issueDB.setOpponent_name(cursor.getString(4));
+
             issueDBList.add(issueDB);
             cursor.moveToNext();
         }
@@ -420,7 +425,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //function to insert data (to get writale)
-    public boolean insertNote(String court_name,String client_type,String opponent_type,String prev_sitting,String decision){
+    public boolean insertNote(String court_name,String client_type,String opponent_type,String prev_sitting,String decision,String date){
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put("court_name",court_name);
@@ -428,6 +433,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("opponent_type",opponent_type);
         contentValues.put("prev_sitting",prev_sitting);
         contentValues.put("decision",decision);
+        contentValues.put("date",date);
 
 
         long result=db.insert("Note",null,contentValues);
@@ -451,6 +457,7 @@ public class DBHelper extends SQLiteOpenHelper {
             noteDB.setOpponent(cursor.getString(3));
             noteDB.setPrev_sitting(cursor.getString(4));
             noteDB.setDecision(cursor.getString(5));
+            noteDB.setDate(cursor.getString(6));
 
             arrayList.add(noteDB);
             cursor.moveToNext();
@@ -486,6 +493,44 @@ public class DBHelper extends SQLiteOpenHelper {
         db3.update("Delegation",contentValues3,"del_client_name= ?",new String[]{oldName});
 
         return true;
+    }
+
+    //function to insert data (to get writale)
+    public boolean insertDelaySitting(String st_id,String date){
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("sitting_id",st_id);
+        contentValues.put("date",date);
+
+
+
+        long result=db.insert("DelaySitting",null,contentValues);
+        if(result==-1)
+            return false;
+        else
+            return true;
+    }
+    //function to reterieve data(to get readable)
+    public ArrayList getDelaySitting(String st_id){
+        ArrayList<String> arrayList=new ArrayList();
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("Select * from DelaySitting where sitting_id='"+st_id+"' ORDER BY id ASC" ,null);
+        cursor.moveToFirst();//move to the first field
+        while (cursor.isAfterLast()==false)//last field
+        {
+            arrayList.add(cursor.getString(2));
+            cursor.moveToNext();
+
+        }
+        return arrayList;
+
+    }
+
+    public Integer deleteDelaySitting(String id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        return db.delete("DelaySitting","sitting_id= ?",new String[]{id});
+
+
     }
 
 

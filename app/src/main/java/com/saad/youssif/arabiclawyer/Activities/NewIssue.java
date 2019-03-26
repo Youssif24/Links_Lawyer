@@ -48,8 +48,13 @@ public class NewIssue extends Activity {
 
         tokenList=new ArrayList<>();
         tokenList.add("صفة الموكل.....");
-        tokenList.add("متهم");
+        tokenList.add("مدعي");
         tokenList.add("مدعي عليه");
+        tokenList.add("متهم");
+        tokenList.add("مجني عليه");
+        tokenList.add("مستأنف ضده");
+        tokenList.add("مستأنف");
+
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, tokenList);
 

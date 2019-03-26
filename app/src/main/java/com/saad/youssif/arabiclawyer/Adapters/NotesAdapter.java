@@ -7,23 +7,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
 import com.saad.youssif.arabiclawyer.Helpers.DBHelper;
+import com.saad.youssif.arabiclawyer.Model.ClientDB;
 import com.saad.youssif.arabiclawyer.Model.NoteDB;
 import com.saad.youssif.arabiclawyer.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.gitonway.lee.niftymodaldialogeffects.lib.Effectstype.RotateBottom;
 
-public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
+public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> implements Filterable {
 
     Context context;
     List<NoteDB> noteDBList;
+    List<NoteDB>noteDBListFull;
     DBHelper dbHelper;
 
     public NotesAdapter (Context context,List<NoteDB> noteDBList)
@@ -31,6 +36,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         this.context=context;
         this.noteDBList=noteDBList;
         this.dbHelper=new DBHelper(context);
+        noteDBListFull=new ArrayList<>(noteDBList);
     }
 
 
@@ -50,6 +56,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         notesViewHolder.opponent.setText("الخصم و صفته:  "+noteDB.getOpponent());
         notesViewHolder.prevSitting.setText("الجلسة السابقة:  "+noteDB.getPrev_sitting());
         notesViewHolder.decision.setText("القرار:  "+noteDB.getDecision());
+        notesViewHolder.date.setText(noteDB.getDate());
 
         notesViewHolder.deleteImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,9 +110,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         return noteDBList.size();
     }
 
-    public static class NotesViewHolder extends RecyclerView.ViewHolder {
 
-        TextView court,client,opponent,prevSitting,decision;
+
+    public class NotesViewHolder extends RecyclerView.ViewHolder {
+
+        TextView court,client,opponent,prevSitting,decision,date;
         ImageView deleteImg;
 
 
@@ -117,6 +126,46 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             prevSitting=itemView.findViewById(R.id.note_prev_sitting);
             decision=itemView.findViewById(R.id.note_decision);
             deleteImg=itemView.findViewById(R.id.note_deleteImg);
+            date=itemView.findViewById(R.id.note_date);
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return ClientFilter;
+    }
+    private Filter ClientFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<NoteDB> filteredList=new ArrayList<>();
+
+            if(charSequence==null || charSequence.length()==0)
+            {
+                filteredList.addAll(noteDBListFull);
+            }
+            else
+            {
+                String filterString=charSequence.toString().trim();
+                for(NoteDB item : noteDBListFull)
+                {
+                    if(item.getDate().contains(filterString))
+                    {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results=new FilterResults();
+            results.values=filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            noteDBList.clear();
+            noteDBList.addAll((List)filterResults.values);
+            notifyDataSetChanged();
+
+        }
+    };
 }

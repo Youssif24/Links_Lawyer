@@ -76,7 +76,6 @@
                     android:hint="رقم التوكيل"
                     android:layout_marginRight="@dimen/_3sdp"
                     android:textColor="@color/colorPrimary"
-                    android:inputType="numberDecimal"
 
                     />
             </android.support.design.widget.TextInputLayout>
