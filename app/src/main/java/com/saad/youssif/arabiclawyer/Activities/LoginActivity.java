@@ -54,16 +54,18 @@ import javax.net.ssl.X509TrustManager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends AppCompatActivity implements LoginView{
 
     LawyerPresenter lawyerPresenter;
-    Button enterBtn;
+    Button loginBtn,registerbtn;
     EditText nameEt,passwordEt;
     ProgressDialog progressDialog;
     ConnectivityManager connectivityManager;
     SharedPrefManager sharedPrefManager;
   //  FirebaseAuth firebaseAuth;
-
+   // EditText emailEt;
+  //  ProgressDialog progressDialog;
+    FirebaseAuth firebaseAuth;
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -73,19 +75,29 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        enterBtn=findViewById(R.id.signInBtn);
+        registerbtn=findViewById(R.id.registerBtn);
+        loginBtn=findViewById(R.id.loginBtn);
         nameEt=findViewById(R.id.login_nameEt);
         passwordEt=findViewById(R.id.login_passwordEt);
+        progressDialog=new ProgressDialog(this);
+
+        registerbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent rgIntent= new Intent(LoginActivity.this,Register.class);
+                startActivity(rgIntent);
+            }
+        });
         //firebaseAuth=FirebaseAuth.getInstance();
         progressDialog=new ProgressDialog(this);
         lawyerPresenter=new LawyerPresenter(this,this);
         sharedPrefManager=SharedPrefManager.getInstance(this);
         connectivityManager= (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         register_from_shrd();
-        handleSSLHandshake();
-        initializeSSLContext(this);
+        //handleSSLHandshake();
+       // initializeSSLContext(this);
 
-        enterBtn.setOnClickListener(new View.OnClickListener() {
+        loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(checkConnection())
@@ -113,7 +125,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     }
 
-    @Override
+
+   @Override
     public void showLoginResult(String result) {
         if(result.equals("success"))
         {
@@ -158,7 +171,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     }
 
-  /*  public void userLogin()
+   /*public void userLogin()
     {
         String username=nameEt.getText().toString().trim();
         String password=passwordEt.getText().toString().trim();
@@ -178,8 +191,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
                     }
                 });
-    }*/
-
+    }
+*/
     public void save_user_data(String username,String password)
     {
         sharedPrefManager.setName(username.trim());
@@ -199,7 +212,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     /**
      * Enables https connections
      */
-    @SuppressLint("TrulyRandom")
+   /* @SuppressLint("TrulyRandom")
     public static void handleSSLHandshake() {
         try {
             TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
@@ -242,6 +255,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         } catch (GooglePlayServicesNotAvailableException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
 }

@@ -11,6 +11,7 @@ import com.saad.youssif.arabiclawyer.View.LoginView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class LawyerPresenter {
     Context context;
@@ -29,11 +30,10 @@ public class LawyerPresenter {
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-
                 Log.e("LoginResponse", response.raw().request().toString());
 
                 if (response.isSuccessful()) {
-                    loginView.showLoginResult(response.body().toString());
+                    loginView.showLoginResult(response.body());
 
                 }
                 else

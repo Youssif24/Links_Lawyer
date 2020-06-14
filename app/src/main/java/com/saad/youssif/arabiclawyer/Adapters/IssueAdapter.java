@@ -1,15 +1,19 @@
 package com.saad.youssif.arabiclawyer.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gitonway.lee.niftymodaldialogeffects.lib.NiftyDialogBuilder;
+import com.saad.youssif.arabiclawyer.Activities.IssueDetails;
 import com.saad.youssif.arabiclawyer.Helpers.DBHelper;
 import com.saad.youssif.arabiclawyer.Model.ClientDB;
 import com.saad.youssif.arabiclawyer.Model.IssueDB;
@@ -50,10 +54,28 @@ public class IssueAdapter extends RecyclerView.Adapter<IssueAdapter.IssueViewHol
         issueViewHolder.issue_client.setText(issueDB.getClient_name());
         issueViewHolder.issue_num.setText("رقم القضية: "+issueDB.getNum());
         issueViewHolder.issue_type.setText("نوع القضية: "+issueDB.getType());
-        issueViewHolder.issue_opponent.setText("إسم الخصم: "+issueDB.getOpponent_name());
-        issueViewHolder.issue_court.setText("إسم المحكمة: "+issueDB.getCourt_name());
-        issueViewHolder.issue_token.setText("صفة الموكل: "+issueDB.getToken());
-        issueViewHolder.issue_details.setText("موضوع القضية: "+issueDB.getDetails());
+       // issueViewHolder.issue_opponent.setText("إسم الخصم: "+issueDB.getOpponent_name());
+       // issueViewHolder.issue_court.setText("إسم المحكمة: "+issueDB.getCourt_name());
+       // issueViewHolder.issue_token.setText("صفة الموكل: "+issueDB.getToken());
+       // issueViewHolder.issue_details.setText("موضوع القضية: "+issueDB.getDetails());
+
+        issueViewHolder.issue_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final int position=issueViewHolder.getAdapterPosition();
+                Intent issue_deatils_intent=new Intent(ctx, IssueDetails.class);
+                issue_deatils_intent.putExtra("client_name",issueList.get(position).getClient_name());
+                issue_deatils_intent.putExtra("issue_num",issueList.get(position).getNum());
+                issue_deatils_intent.putExtra("issue_type",issueList.get(position).getType());
+                issue_deatils_intent.putExtra("opponent_name",issueList.get(position).getOpponent_name());
+                issue_deatils_intent.putExtra("court",issueList.get(position).getCourt_name());
+                issue_deatils_intent.putExtra("client_token",issueList.get(position).getToken());
+                issue_deatils_intent.putExtra("issue_details",issueList.get(position).getDetails());
+
+                ctx.startActivity(issue_deatils_intent);
+               // Toast.makeText(ctx, issueList.get(position).getToken(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         issueViewHolder.deleteImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,16 +133,18 @@ public class IssueAdapter extends RecyclerView.Adapter<IssueAdapter.IssueViewHol
     public static class IssueViewHolder extends RecyclerView.ViewHolder {
         TextView issue_num,issue_client,issue_token,issue_opponent,issue_type,issue_court,issue_details;
         ImageView deleteImg;
+        CardView issue_card;
 
         public IssueViewHolder(View item) {
             super(item);
+            issue_card=item.findViewById(R.id.issue_card);
            issue_num=item.findViewById(R.id.issue_num);
            issue_client=item.findViewById(R.id.issue_client_name);
-           issue_token=item.findViewById(R.id.issue_token);
-           issue_opponent=item.findViewById(R.id.issue_opponent);
+          // issue_token=item.findViewById(R.id.issue_token);
+          // issue_opponent=item.findViewById(R.id.issue_opponent);
            issue_type=item.findViewById(R.id.issue_type);
-           issue_court=item.findViewById(R.id.issue_court);
-           issue_details=item.findViewById(R.id.issue_details);
+          // issue_court=item.findViewById(R.id.issue_court);
+          // issue_details=item.findViewById(R.id.issue_details);
            deleteImg=item.findViewById(R.id.issue_deleteImg);
 
         }

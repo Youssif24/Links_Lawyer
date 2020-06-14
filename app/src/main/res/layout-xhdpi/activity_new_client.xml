@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,138 +7,158 @@
     android:layout_height="match_parent"
     android:textDirection="rtl"
     android:layoutDirection="rtl"
+    android:background="@color/gray"
     tools:context=".Activities.NewClient">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:textDirection="rtl"
-        android:textAlignment="viewStart"
         android:layout_gravity="start"
         android:layoutDirection="rtl"
-        >
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="إضافة موكل : "
-            android:layout_gravity="right"
-            android:gravity="start"
-            android:textDirection="rtl"
-            android:textAlignment="viewStart"
-            android:layoutDirection="rtl"
-
-            />
+        android:textAlignment="viewStart"
+        android:textDirection="rtl"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintBottom_toTopOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="right"
+        android:background="@color/colorPrimary"
+        android:gravity="start"
+        android:layoutDirection="rtl"
+        android:textAlignment="viewStart"
+        android:textDirection="rtl"
+        app:titleTextColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:title="إضافة موكل : " />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layoutDirection="rtl"
-            >
-            <android.support.design.widget.TextInputLayout
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/new_client_idEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_client_idEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="الرقم القومي"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="numberDecimal"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="الرقم القومي"
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
+            <EditText
+                android:id="@+id/new_client_nameEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_client_nameEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="الإسم"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
 
-                    />
-            </android.support.design.widget.TextInputLayout>
+                android:hint="الإسم"
+                android:padding="8dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_client_phoneEt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_client_idEt" />
 
-            <android.support.design.widget.TextInputLayout
+            <EditText
+                android:id="@+id/new_client_phoneEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_client_phoneEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="رقم التليفون"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="numberDecimal"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="رقم التليفون"
 
-                    />
-            </android.support.design.widget.TextInputLayout>
+                android:inputType="numberDecimal"
+                android:padding="8dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_client_typeEt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_client_nameEt" />
 
-            <android.support.design.widget.TextInputLayout
+            <EditText
+                android:id="@+id/new_client_typeEt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_client_typeEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="نوع القضية"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="نوع القضية"
+                android:padding="8dp"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_client_phoneEt"
+                app:layout_constraintVertical_bias="0.03" />
 
             <Button
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_50sdp"
                 android:id="@+id/save_newClient_btn"
-                android:text="حفظ"
-                android:background="@drawable/login_btn_selector"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
 
-                />
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/login_btn_selector"
+                android:text="إضافة"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_client_typeEt"
+                app:layout_constraintVertical_bias="0.191" />
+        </android.support.constraint.ConstraintLayout>
 
-        </LinearLayout>
     </ScrollView>
 
 
-
-
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

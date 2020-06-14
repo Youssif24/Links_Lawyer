@@ -127,9 +127,10 @@
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_50sdp"
                 android:id="@+id/save_newClient_btn"
-                android:text="حفظ"
+                android:text="إضافة"
                 android:background="@drawable/login_btn_selector"
                 android:layout_gravity="center"
+                android:textStyle="bold"
                 android:layout_marginTop="10dp"
 
                 />

@@ -16,7 +16,7 @@ public class MyApplication extends Application {
         getOverflowMenu();
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("font/Cairo-Light.ttf")
+                .setDefaultFontPath("font/Al-Jazeera-Arabic-Regular.ttf")
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );

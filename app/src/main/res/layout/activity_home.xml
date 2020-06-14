@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back7"
     tools:context=".Activities.Home"
     android:orientation="vertical"
     android:layoutDirection="rtl"
@@ -36,192 +35,18 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <LinearLayout
+    <GridView
+        android:id="@+id/gridView"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="60dp"
-        >
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-            >
-            <Button
-                android:id="@+id/mokel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorPrimary"
-                android:text="الموكلين"
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:layout_weight="1"
-                android:drawableRight="@drawable/ic_team"
-                android:drawablePadding="-20dp"
-                android:textDirection="rtl"
-
-                />
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-            android:layout_marginRight="30dp"
-            android:background="@color/teal"
-
-            >
-            <Button
-                android:id="@+id/glsat"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/teal"
-                android:text="الجلسات "
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:layout_weight="1"
-                android:drawableRight="@drawable/ic_sitting"
-                android:drawablePadding="-20dp"
-
-                />
-        </android.support.v7.widget.CardView>
-
-
-
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:layoutDirection="rtl"
-        >
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-            android:background="@color/teal"
-
-            >
-            <Button
-                android:id="@+id/twkeel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="التوكيلات"
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:layout_weight="1"
-                android:background="@color/DarkKhaki"
-                android:drawableRight="@drawable/ic_auth"
-                android:drawablePadding="-20dp"
-                />
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-            android:layout_marginRight="30dp"
-
-            >
-            <Button
-                android:id="@+id/kadya"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="القضايا"
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:layout_weight="1"
-                android:background="@color/CadetBlue"
-                android:drawableRight="@drawable/ic_issue"
-                android:drawablePadding="-20dp"
-
-                />
-
-
-        </android.support.v7.widget.CardView>
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:layoutDirection="rtl"
-        android:textDirection="rtl"
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:columnWidth="3dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/gridview_style"
         >
 
-
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-
-            >
-            <Button
-                android:id="@+id/notesBtn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="الأجندة"
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:background="@color/DarkSeaGreen"
-                android:drawableRight="@drawable/ic_notebook"
-                android:drawablePadding="-20dp"
-
-                />
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:cardCornerRadius="10dp"
-            android:elevation="5dp"
-            android:layout_marginRight="30dp"
-
-            >
-            <Button
-                android:id="@+id/outBtn"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="خروج"
-                android:textColor="#ffff"
-                android:textSize="18sp"
-                android:background="@color/ForestGreen"
-                android:drawableRight="@drawable/ic_logout"
-                android:drawablePadding="-20dp"
-
-                />
-        </android.support.v7.widget.CardView>
-
-
-
-
-
-    </LinearLayout>
+    </GridView>
 
 
 </LinearLayout>

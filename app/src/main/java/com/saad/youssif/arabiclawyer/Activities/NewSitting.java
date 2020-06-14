@@ -56,7 +56,7 @@ public class NewSitting extends AppCompatActivity {
         delay_date=findViewById(R.id.new_sitting_delayEt);
         judgment=findViewById(R.id.new_sitting_judgmentEt);
         saveSittingBtn=findViewById(R.id.save_newSitting_btn);
-        delayTextInputLayout=findViewById(R.id.sitting_textInput_delay);
+        //delayTextInputLayout=findViewById(R.id.sitting_textInput_delay);
         dbHelper=new DBHelper(this);
 
 

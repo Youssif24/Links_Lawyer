@@ -1,136 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layoutDirection="rtl"
+    android:background="@color/gray"
     tools:context=".Activities.NewDelegation">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:textDirection="rtl"
-        android:textAlignment="viewStart"
         android:layout_gravity="start"
-        >
+        android:textAlignment="viewStart"
+        android:textDirection="rtl"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/DarkKhaki"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="إضافة توكيل : "
             android:layout_gravity="right"
+            android:background="@color/DarkKhaki"
             android:gravity="start"
-            android:textDirection="rtl"
             android:textAlignment="viewStart"
-            />
+            android:textDirection="rtl"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:title="إضافة توكيل : " />
 
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout5">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_marginTop="0dp"
             android:layoutDirection="rtl"
-            android:layout_marginTop="@dimen/_20sdp"
-            >
+            android:orientation="vertical">
+
             <TextView
+                android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:padding="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:text="إختر إسم الموكل :"
-                android:layout_marginTop="15dp"
                 android:textSize="@dimen/_13sdp"
+                app:layout_constraintEnd_toEndOf="@+id/del_clientsSpinner"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                />
+            <EditText
+                android:id="@+id/new_del_dateEt"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="تاريخ التوثيق"
+                android:paddingLeft="@dimen/_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_del_orgEt" />
+
+            <EditText
+                android:id="@+id/new_del_orgEt"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="جهة التوثيق"
+                android:paddingLeft="@dimen/_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_del_dateEt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_del_numEt" />
+
+            <EditText
+                android:id="@+id/new_del_numEt"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="رقم التوكيل"
+                android:paddingLeft="@dimen/_20sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_del_orgEt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/del_clientsSpinner" />
+
+            <Button
+                android:id="@+id/save_newDel_btn"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/login_btn_selector"
+
+                android:text="إضافة"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_del_dateEt" />
 
             <Spinner
                 android:id="@+id/del_clientsSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textDirection="rtl"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                android:background="@drawable/edittext_style"
                 android:layoutDirection="rtl"
-                ></Spinner>
+                android:textDirection="rtl"
+                app:layout_constraintEnd_toEndOf="@+id/new_del_numEt"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"></Spinner>
 
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                >
-                <EditText
-                    android:id="@+id/new_del_numEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/_20sdp"
-                    android:textStyle="bold"
-                    android:hint="رقم التوكيل"
-                    android:layout_marginRight="@dimen/_3sdp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                >
-                <EditText
-                    android:id="@+id/new_del_orgEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/_20sdp"
-                    android:textStyle="bold"
-                    android:hint="جهة التوثيق"
-                    android:layout_marginRight="@dimen/_3sdp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                >
-                <EditText
-                    android:id="@+id/new_del_dateEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/_20sdp"
-                    android:textStyle="bold"
-                    android:hint="تاريخ التوثيق"
-                    android:layout_marginRight="@dimen/_3sdp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <Button
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:id="@+id/save_newDel_btn"
-                android:text="إضافة"
-                android:background="@drawable/login_btn_selector"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:textSize="@dimen/_15sdp"
-
-                />
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
-</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

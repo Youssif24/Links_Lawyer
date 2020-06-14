@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/gray"
     tools:context=".Activities.NewNote">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:textDirection="rtl"
-        android:textAlignment="viewStart"
         android:layout_gravity="start"
         android:layoutDirection="rtl"
-        >
+        android:textAlignment="viewStart"
+        android:textDirection="rtl"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="right"
             android:background="@color/DarkSeaGreen"
+            android:gravity="start"
+            android:layoutDirection="rtl"
+            android:textAlignment="viewStart"
+            android:textDirection="rtl"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="الأجندة القانونية"
-            android:layout_gravity="right"
-            android:gravity="start"
-            android:textDirection="rtl"
-            android:textAlignment="viewStart"
-            android:layoutDirection="rtl"
 
             />
 
@@ -36,141 +40,154 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2">
+
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layoutDirection="rtl"
-            >
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_note_court_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="إسم المحكمة"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_note_client"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="الموكل و صفته"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_note_opponent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="الخصم و صفته"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_note_prev_sitting"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="الجلسة السابقة"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_note_decision"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="القرار"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="5dp"
-                >
-                <EditText
-                    android:id="@+id/new_note_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:textStyle="bold"
-                    android:hint="التاريخ"
-                    android:layout_marginRight="3dp"
-                    android:textColor="@color/colorPrimary"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
+            android:orientation="vertical">
 
             <Button
+                android:id="@+id/save_newNote_btn"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:id="@+id/save_newNote_btn"
-                android:text="إضافة"
-                android:background="@drawable/login_btn_selector"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/login_btn_selector"
+
+                android:text="إضافة"
                 android:textSize="18sp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_note_date" />
 
-                />
+            <EditText
+                android:id="@+id/new_note_date"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
 
-        </LinearLayout>
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="التاريخ"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_note_decision" />
+
+            <EditText
+                android:id="@+id/new_note_decision"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="القرار"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_note_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_note_prev_sitting" />
+
+            <EditText
+                android:id="@+id/new_note_prev_sitting"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="الجلسة السابقة"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_note_decision"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_note_opponent" />
+
+            <EditText
+                android:id="@+id/new_note_opponent"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="الخصم و صفته"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_note_prev_sitting"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_note_client" />
+
+            <EditText
+                android:id="@+id/new_note_client"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="الموكل و صفته"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_note_opponent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/new_note_court_name" />
+
+            <EditText
+                android:id="@+id/new_note_court_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:padding="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/edittext_style"
+                android:hint="إسم المحكمة"
+                android:paddingLeft="20dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/new_note_client"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
-</LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
